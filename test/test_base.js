@@ -11,60 +11,6 @@ var confighanlderTest	= require('clientlinker-flow-confighandler-test');
 
 describe('#logger', function()
 {
-	function PromiseDeffer()
-	{
-		var resolve, reject;
-		var promise = new Promise(function(resolve0, reject0)
-		{
-			resolve = resolve0;
-			reject = reject0;
-		});
-
-		return {
-			promise: promise,
-			resolve: resolve,
-			reject: reject
-		};
-	}
-
-	function simpleLinker(genLoggerHander)
-	{
-		var linker = ClientLinker(
-			{
-				flows: ['logger', 'confighandler'],
-				clients:
-				{
-					client_run:
-					{
-						logger: genLoggerHander('run'),
-						confighandler:
-						{
-							method: function()
-							{
-								return Promise.resolve('success');
-							}
-						}
-					},
-					client_error:
-					{
-						logger: genLoggerHander('error'),
-						confighandler:
-						{
-							method: function()
-							{
-								return Promise.reject(new Error('error'));
-							}
-						}
-					}
-				}
-			});
-
-		linker.flow('confighanlder', confighanlderFlow);
-		linker.flow('logger', loggerFlow);
-
-		return linker;
-	}
-
 	it('#param', function()
 	{
 		var runDeffer = PromiseDeffer();
@@ -151,3 +97,60 @@ describe('#logger', function()
 		]);
 	});
 });
+
+
+
+
+function simpleLinker(genLoggerHander)
+{
+	var linker = ClientLinker(
+	{
+		flows: ['logger', 'confighandler'],
+		clients:
+		{
+			client_run:
+			{
+				logger: genLoggerHander('run'),
+				confighandler:
+				{
+					method: function()
+					{
+						return Promise.resolve('success');
+					}
+				}
+			},
+			client_error:
+			{
+				logger: genLoggerHander('error'),
+				confighandler:
+				{
+					method: function()
+					{
+						return Promise.reject(new Error('error'));
+					}
+				}
+			}
+		}
+	});
+
+	linker.flow('confighanlder', confighanlderFlow);
+	linker.flow('logger', loggerFlow);
+
+	return linker;
+}
+
+function PromiseDeffer()
+{
+	var resolve, reject;
+	var promise = new Promise(function(resolve0, reject0)
+	{
+		resolve = resolve0;
+		reject = reject0;
+	});
+
+	return {
+		promise: promise,
+		resolve: resolve,
+		reject: reject
+	};
+}
