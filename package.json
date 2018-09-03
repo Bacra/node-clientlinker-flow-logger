@@ -18,11 +18,10 @@
   "author": "Bacra Woo<bacra.woo@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.10",
-    "bluebird": "^3.5.1",
     "debug": "^3.1.0"
   },
   "devDependencies": {
+    "bluebird": "^3.5.1",
     "clientlinker": "^7.0.0",
     "clientlinker-flow-confighandler": "^1.0.1",
     "clientlinker-flow-confighandler-test": "^1.0.1",
