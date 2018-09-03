@@ -43,7 +43,7 @@ var linker = clientlinker({
 });
 
 linker.flow('confighandler', require('clientlinker-flow-confighandler'));
-linker.flow('confighandler', require('clientlinker-flow-logger'));
+linker.flow('logger', require('clientlinker-flow-logger'));
 
 // use
 linker.run('client.clientHanlder', null, {id: 13})
