@@ -6,7 +6,6 @@ var ClientLinker		= require('clientlinker');
 var logger				= require('../flow/logger');
 var loggerFlow			= require('../');
 var confighanlderFlow	= require('clientlinker-flow-confighandler');
-var confighanlderTest	= require('clientlinker-flow-confighandler-test');
 
 
 describe('#logger', function()
@@ -133,7 +132,7 @@ function simpleLinker(genLoggerHander)
 		}
 	});
 
-	linker.flow('confighanlder', confighanlderFlow);
+	linker.flow('confighandler', confighanlderFlow);
 	linker.flow('logger', loggerFlow);
 
 	return linker;

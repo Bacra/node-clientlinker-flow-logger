@@ -28,18 +28,17 @@ npm i clientlinker-flow-logger --save
 ```javascript
 var clientlinker = require('clientlinker');
 var linker = clientlinker({
-	flows: ['logger', 'confighandler'],
-	clients: {
-		client: {
-			logger: function(runtime, err, data){},
-			confighandler: {
-				clientHanlder: function(query, body, callback, options)
-				{
-					return Promise.resolve({result: {}});
-				},
-			}
-		}
-	}
+    flows: ['logger', 'confighandler'],
+    clients: {
+        client: {
+            logger: function(runtime, err, data){},
+            confighandler: {
+                clientHanlder: function(query, body, callback, options) {
+                    return Promise.resolve({result: {}});
+                },
+            }
+        }
+    }
 });
 
 linker.flow('confighandler', require('clientlinker-flow-confighandler'));
@@ -47,7 +46,7 @@ linker.flow('logger', require('clientlinker-flow-logger'));
 
 // use
 linker.run('client.clientHanlder', null, {id: 13})
-	.then(function(){});
+    .then(function(){});
 ```
 
 

@@ -1,6 +1,6 @@
 {
   "name": "clientlinker-flow-logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Logger flow for clientlinker",
   "main": "flow/index.js",
   "scripts": {
@@ -21,12 +21,11 @@
     "debug": "^3.1.0"
   },
   "devDependencies": {
-    "bluebird": "^3.5.1",
-    "clientlinker": "^7.0.1",
+    "bluebird": "^3.5.2",
+    "clientlinker": "^7.0.2",
     "clientlinker-flow-confighandler": "^1.0.1",
-    "clientlinker-flow-confighandler-test": "^1.0.1",
     "cross-env": "^5.2.0",
-    "eslint": "^5.4.0",
+    "eslint": "^5.5.0",
     "eslint-config-brcjs": "^0.2.0",
     "expect.js": "^0.3.1",
     "istanbul": "^0.4.5",
