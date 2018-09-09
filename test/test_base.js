@@ -2,7 +2,7 @@
 
 var Promise				= require('bluebird');
 var expect				= require('expect.js');
-var ClientLinker		= require('clientlinker');
+var clientlinker		= require('clientlinker');
 var logger				= require('../flow/logger');
 var loggerFlow			= require('../');
 var confighanlderFlow	= require('clientlinker-flow-confighandler');
@@ -102,7 +102,7 @@ describe('#logger', function()
 
 function simpleLinker(genLoggerHander)
 {
-	var linker = ClientLinker(
+	var linker = clientlinker(
 	{
 		flows: ['logger', 'confighandler'],
 		clients:
